@@ -1,0 +1,26 @@
+CREATE TABLE "Users" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY AUTOINCREMENT,
+    "Username" TEXT NOT NULL,
+    "Email" TEXT NOT NULL,
+    "Gender" TEXT NOT NULL
+);
+
+CREATE TABLE "Likes" (
+    "SourceUserId" INTEGER NOT NULL,
+    "TargetUserId" INTEGER NOT NULL,
+    CONSTRAINT "PK_Likes" PRIMARY KEY ("SourceUserId", "TargetUserId"),
+    CONSTRAINT "FK_Likes_Users_SourceUserId" FOREIGN KEY ("SourceUserId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+    CONSTRAINT "FK_Likes_Users_TargetUserId" FOREIGN KEY ("TargetUserId") REFERENCES "Users" ("Id") ON DELETE CASCADE      
+);
+
+CREATE TABLE "Messages" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Messages" PRIMARY KEY AUTOINCREMENT,
+    "SenderId" INTEGER NOT NULL,
+    "SenderUsername" TEXT NOT NULL,
+    "RecipientId" INTEGER NOT NULL,
+    "RecipientUsername" TEXT NOT NULL,
+    "Content" TEXT NOT NULL,
+    CONSTRAINT "FK_Messages_Users_RecipientId" FOREIGN KEY ("RecipientId") REFERENCES "Users" ("UserID") ON DELETE RESTRICT          
+    CONSTRAINT "FK_Messages_Users_SenderId" FOREIGN KEY ("SenderId") REFERENCES "Users" ("UserID") ON DELETE RESTRICT
+);
+

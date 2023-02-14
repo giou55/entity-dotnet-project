@@ -20,8 +20,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/giour/OneDrive/Υπολογιστής/Projects/entity-dotnet-project/Views/Like/AddLike.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlrZVxBZGRMaWtlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/giour/OneDrive/Υπολογιστής/Projects/entity-dotnet-project/Views/Like/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlrZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/giour/OneDrive/Υπολογιστής/Projects/entity-dotnet-project/Views/Message/AddMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZVxBZGRNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/giour/OneDrive/Υπολογιστής/Projects/entity-dotnet-project/Views/Message/Index.cshtml]
@@ -32,12 +40,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/giour/OneDrive/Υπολογιστής/Projects/entity-dotnet-project/Views/User/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+[C:/Users/giour/OneDrive/Υπολογιστής/Projects/entity-dotnet-project/Views/User/AddUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBZGRVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/giour/OneDrive/Υπολογιστής/Projects/entity-dotnet-project/Views/User/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcml2YWN5LmNzaHRtbA==
+[C:/Users/giour/OneDrive/Υπολογιστής/Projects/entity-dotnet-project/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/giour/OneDrive/Υπολογιστής/Projects/entity-dotnet-project/Views/_ViewImports.cshtml]

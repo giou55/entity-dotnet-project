@@ -1,10 +1,12 @@
 using entity_dotnet_project.Data;
+using entity_dotnet_project.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddDbContext<DataContext>(options => 
 {
@@ -15,9 +17,9 @@ var app = builder.Build();
 
 app.UseStaticFiles();
 
-app.UseRouting();
+app.MapControllers();
 
-app.UseAuthorization();
+app.UseRouting();
 
 app.MapControllerRoute(
     name: "default",

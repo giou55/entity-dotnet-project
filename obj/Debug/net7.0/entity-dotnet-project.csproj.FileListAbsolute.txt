@@ -21,7 +21,6 @@ C:\Users\giour\OneDrive\Υπολογιστής\Projects\entity-dotnet-project\ob
 C:\Users\giour\OneDrive\Υπολογιστής\Projects\entity-dotnet-project\obj\Debug\net7.0\staticwebassets.pack.json
 C:\Users\giour\OneDrive\Υπολογιστής\Projects\entity-dotnet-project\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\giour\OneDrive\Υπολογιστής\Projects\entity-dotnet-project\obj\Debug\net7.0\staticwebassets.development.json
-C:\Users\giour\OneDrive\Υπολογιστής\Projects\entity-dotnet-project\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\giour\OneDrive\Υπολογιστής\Projects\entity-dotnet-project\obj\Debug\net7.0\scopedcss\bundle\entity-dotnet-project.styles.css
 C:\Users\giour\OneDrive\Υπολογιστής\Projects\entity-dotnet-project\obj\Debug\net7.0\scopedcss\projectbundle\entity-dotnet-project.bundle.scp.css
 C:\Users\giour\OneDrive\Υπολογιστής\Projects\entity-dotnet-project\obj\Debug\net7.0\entity-dotnet-project.dll
@@ -100,3 +99,4 @@ C:\Users\giour\OneDrive\Υπολογιστής\Projects\entity-dotnet-project\bi
 C:\Users\giour\OneDrive\Υπολογιστής\Projects\entity-dotnet-project\bin\Debug\net7.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\giour\OneDrive\Υπολογιστής\Projects\entity-dotnet-project\bin\Debug\net7.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\giour\OneDrive\Υπολογιστής\Projects\entity-dotnet-project\bin\Debug\net7.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\giour\OneDrive\Υπολογιστής\Projects\entity-dotnet-project\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css

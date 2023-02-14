@@ -1,0 +1,29 @@
+@using entity_dotnet_project.Models
+@model User
+
+
+<div class="text-center">
+    <h1 class="display-4">Create a message</h1>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <form asp-action="" method="post">
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label">Sender</label>
+                <input asp-for="Username" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Receiver</label>
+                <input asp-for="Email" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Gender" class="form-label">Content</label>
+                <input asp-for="Gender" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

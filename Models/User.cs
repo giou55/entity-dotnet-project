@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace entity_dotnet_project.Models
 {
     public class User
@@ -13,12 +8,12 @@ namespace entity_dotnet_project.Models
         public string Gender { get; set; }
 
         // these are the users that like AppUser
-        public List<Like> LikedByUsers { get; set; }
+        public List<Like>? LikedByUsers { get; set; }
 
         // these are the users that the AppUser likes
-        public List<Like> LikedUsers { get; set; }
+        public List<Like>? LikedUsers { get; set; }
 
-        public List<Message> MessagesSent { get; set; }
-        public List<Message> MessagesReceived { get; set; }
+        public List<Message>? MessagesSent { get; set; }
+        public List<Message>? MessagesReceived { get; set; }
     }
 }

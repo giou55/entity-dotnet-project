@@ -1,3 +1,27 @@
-﻿<div class="text-center">
+﻿@model IQueryable<User>
+
+<div class="text-center">
     <h1 class="display-4">Users</h1>
 </div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Gender</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var user in Model)
+    {
+        <tr>
+        <td>@user.Username</td>
+        <td>@user.Email</td>
+        <td>@user.Gender</td>
+        <td><a href="~/User/Delete/@user.Id">Delete</a></td>
+        </tr>
+    }
+  </tbody>
+</table>

@@ -1,3 +1,25 @@
-﻿<div class="text-center">
+﻿@model IQueryable<Like>
+
+<div class="text-center">
     <h1 class="display-4">Likes</h1>
 </div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sender</th>
+      <th scope="col">Receiver</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var like in Model)
+    {
+        <tr>
+        <td>@like.SourceUserId</td>
+        <td>@like.TargetUserId</td>
+        <td><a href="">Delete</a></td>
+        </tr>
+    }
+  </tbody>
+</table>

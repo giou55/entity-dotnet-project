@@ -2,40 +2,40 @@ using entity_dotnet_project.Data;
 
 namespace entity_dotnet_project.Models
 {
-    public class UserRepository : IUserRepository
+    public class MessageRepository : IMessageRepository
     {
         private readonly DataContext _context;
-        public UserRepository(DataContext context)
+        public MessageRepository(DataContext context)
         {
             _context = context;
         }
 
-        public IQueryable<User> Users => _context.Users;
+        public IQueryable<Message> Messages => _context.Messages;
 
-        public void Add(User u)
+        public void Add(Message m)
         {
-            _context.Add(u);
+            _context.Add(m);
             _context.SaveChanges();
         }
 
-        public async Task AddAsync(User u)
+        public async Task AddAsync(Message m)
         {
-            _context.Add(u);
+            _context.Add(m);
             await _context.SaveChangesAsync();
         }
 
-        public async Task Delete(User u)
+        public async Task Delete(Message m)
         {
-            _context.Remove(u);
+            _context.Remove(m);
             await _context.SaveChangesAsync();
         }
 
-        public void Save(User u)
+        public void Save(Message m)
         {
             throw new NotImplementedException();
         }
 
-        public Task SaveAsync(User u)
+        public Task SaveAsync(Message m)
         {
             throw new NotImplementedException();
         }

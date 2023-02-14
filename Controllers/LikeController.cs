@@ -1,17 +1,22 @@
+using entity_dotnet_project.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace entity_dotnet_project.Controllers
 {
     public class LikeController : Controller
     {
+        public IQueryable<Like> Likes;
 
-        public LikeController()
+        private ILikeRepository repository;
+        public LikeController(ILikeRepository likeRepo)
         {
+            repository = likeRepo;
         }
 
         public IActionResult Index()
         {
-            return View();
+            Likes = repository.Likes;
+            return View(Likes);
         }
 
         public ViewResult AddLike()

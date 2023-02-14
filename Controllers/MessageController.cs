@@ -1,17 +1,22 @@
+using entity_dotnet_project.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace entity_dotnet_project.Controllers
 {
     public class MessageController : Controller
     {
-        public MessageController()
+        public IQueryable<Message> Messages;
+
+        private IMessageRepository repository;
+        public MessageController(IMessageRepository messageRepo)
         {
-    
+            repository = messageRepo;
         }
 
         public IActionResult Index()
         {
-            return View();
+            Messages = repository.Messages;
+            return View(Messages);
         }
 
         public ViewResult AddMessage()

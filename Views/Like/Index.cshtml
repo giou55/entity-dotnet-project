@@ -16,10 +16,14 @@
     @foreach (var like in Model)
     {
         <tr>
-        <td>@like.SourceUserId</td>
-        <td>@like.TargetUserId</td>
-        @* <td><a href="~/Like/Delete/@like.SourceUserId">Delete</a></td> *@
-        <td><a href="">Delete</a></td>
+          <td>@like.SourceUserId</td>
+          <td>@like.TargetUserId</td>
+          <td>
+            <a 
+              href="~/Like/Delete?SourceUserId=@like.SourceUserId&TargetUserId=@like.TargetUserId">
+              Delete
+            </a>
+          </td>
         </tr>
     }
   </tbody>

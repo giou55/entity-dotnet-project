@@ -11,6 +11,7 @@ namespace entity_dotnet_project.Controllers
         public List<User> Users;
         private readonly IUserRepository _userRepo;
         private ILikeRepository _likeRepo;
+
         public LikeController(ILikeRepository likeRepo , IUserRepository userRepo)
         {
             _userRepo = userRepo;
@@ -59,17 +60,19 @@ namespace entity_dotnet_project.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> Delete(long sourceUserId, long targetUserId)
+        public async Task<ActionResult> Delete([FromQuery]Like l)
         {
             Like? k = await _likeRepo.Likes
                 .FirstOrDefaultAsync(k => 
-                    k.SourceUserId == sourceUserId && k.TargetUserId == targetUserId) ?? new Like();
+                    k.SourceUserId == l.SourceUserId && k.TargetUserId == l.TargetUserId) ?? new Like();
             if (k != null)
             {
                 await _likeRepo.Delete(k);
                 return Redirect("~/Like");
             }
             return NotFound();
+            // Console.WriteLine("SourceUserId: " + l.SourceUserId);
+            // Console.WriteLine("TargetUserId: " + l.TargetUserId);
         }
     }
 }

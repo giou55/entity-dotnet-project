@@ -1,5 +1,4 @@
-@using entity_dotnet_project.Models
-@model User
+@model LikeUserViewModel
 
 <div class="text-center">
     <h1 class="display-4">Add a like</h1>
@@ -7,16 +6,16 @@
 
 <div class="row">
     <div class="col-6">
-        <div asp-validation-summary="All" class="text-danger"></div>
-
-        <form asp-action="" method="post">
+        <form asp-action="LikeForm" method="post">
             <div class="mb-3">
-                <label asp-for="Username" class="form-label">Sender</label>
-                <input asp-for="Username" class="form-control">
+                <label asp-for="SelectedSender" class="form-label">Select the sender</label>
+                <select class="form-select" asp-items="Model.UsersList" asp-for="SelectedSender">
+                </select>
             </div>
             <div class="mb-3">
-                <label asp-for="Email" class="form-label">Recipient</label>
-                <input asp-for="Email" class="form-control">
+                <label asp-for="SelectedRecipient" class="form-label">Select the recipient</label>
+                <select class="form-select" asp-items="Model.UsersList" asp-for="SelectedRecipient">
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

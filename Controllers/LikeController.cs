@@ -45,10 +45,6 @@ namespace entity_dotnet_project.Controllers
             var SelectedRecipient = viewModel.SelectedRecipient; 
             string[] sender = SelectedSender.Split('-');
             string[] recipient = SelectedRecipient.Split('-');
-            Console.WriteLine("Sender Id: " + sender[0]);
-            Console.WriteLine("Sender username: " + sender[1]);
-            Console.WriteLine("Recipient Id: " + recipient[0]);
-            Console.WriteLine("Recipient username: " + recipient[1]);
 
             var like = new Like 
             {

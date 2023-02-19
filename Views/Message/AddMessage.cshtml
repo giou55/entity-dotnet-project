@@ -6,20 +6,25 @@
 
 <div class="row">
     <div class="col-6">  
+        <div asp-validation-summary="All" class="text-danger"></div>
+        
         <form asp-action="MessageForm" method="post">
             <div class="mb-3">
                 <label asp-for="SelectedSender" class="form-label">Select the sender</label>
-                <select class="form-select" asp-items="Model.UsersList" asp-for="SelectedSender">
+                <select asp-for="SelectedSender" class="form-select" asp-items="Model.UsersList">
                 </select>
+                <span asp-validation-for="SelectedSender" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="SelectedRecipient" class="form-label">Select the recipient</label>
-                <select class="form-select" asp-items="Model.UsersList" asp-for="SelectedRecipient">
+                <select asp-for="SelectedRecipient" class="form-select" asp-items="Model.UsersList">
                 </select>
+                <span asp-validation-for="SelectedRecipient" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="Message.Content" class="form-label">Content</label>
-                <input asp-for="Message.Content" type="text" class="form-control">
+                <input asp-for="Message.Content" type="text" class="form-control" required>
+                <span asp-validation-for="Message.Content" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

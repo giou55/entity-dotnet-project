@@ -8,16 +8,19 @@ namespace entity_dotnet_project.Controllers
     public class UserController : Controller
     {
         public IQueryable<User> Users;
+        public IQueryable<Message> Messages;
+        private readonly IMessageRepository _messageRepo;
+        private readonly IUserRepository _userRepo;
 
-        private IUserRepository repository;
-        public UserController(IUserRepository userRepo) 
+        public UserController(IUserRepository userRepo, IMessageRepository messageRepo) 
         {
-           repository = userRepo; 
+            _messageRepo = messageRepo;
+           _userRepo = userRepo; 
         }
 
         public ViewResult Index()
         {
-            Users = repository.Users;
+            Users = _userRepo.Users;
             return View(Users);
         }
 
@@ -31,7 +34,7 @@ namespace entity_dotnet_project.Controllers
         {
             if (ModelState.IsValid)
             {
-                repository.Add(user);
+                _userRepo.Add(user);
                 return Redirect("~/User");
             }
             else
@@ -40,22 +43,25 @@ namespace entity_dotnet_project.Controllers
             }
         }
 
-        // public async Task<IActionResult> Delete(User user)
-        // {
-        //     await repository.Delete(user);
-        //     return Redirect("~/User");
-        // }
-
         public async Task<IActionResult> Delete(long id)
         {
-            User? b = await repository.Users
-                .FirstOrDefaultAsync(b => b.Id == id) ?? new User();
-            if (b != null)
+            User? u = await _userRepo.Users
+                .FirstOrDefaultAsync(u => u.Id == id);
+            Messages = _messageRepo.Messages;
+
+            if (u != null && !Messages.Any(x => x.SenderId == id) && !Messages.Any(x => x.RecipientId == id))
             {
-                await repository.Delete(b);
-                return Redirect("~/User");
+                await _userRepo.Delete(u);
+                ViewData["Message"] = "The user is deleted";
+                Users = _userRepo.Users;
+                return View("Index", Users);
+                //return Redirect("~/User");
             }
-            return NotFound();
+
+            ViewBag.Message = "Hello";
+            ViewData["Message"] = "You cannot delete the user";
+            Users = _userRepo.Users;
+            return View("Index", Users);
         }
     }
 }

@@ -45,10 +45,6 @@ namespace entity_dotnet_project.Controllers
             Console.WriteLine("Content: " + viewModel.Message.Content);
             string[] sender = SelectedSender.Split('-');
             string[] recipient = SelectedRecipient.Split('-');
-            // Console.WriteLine("Sender Id: " + sender[0]);
-            // Console.WriteLine("Sender username: " + sender[1]);
-            // Console.WriteLine("Recipient Id: " + recipient[0]);
-            // Console.WriteLine("Recipient username: " + recipient[1]);
 
             var message = new Message 
             {
@@ -58,8 +54,10 @@ namespace entity_dotnet_project.Controllers
                 RecipientUsername = recipient[1],
                 Content = viewModel.Message.Content
             };
+
             await _messageRepo.AddAsync(message);
             return RedirectToAction("Index");
+
         }
 
         public async Task<IActionResult> Delete(long id)

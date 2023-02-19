@@ -10,7 +10,7 @@ using entity_dotnet_project.Data;
 namespace entitydotnetproject.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230213194620_InitialCreate")]
+    [Migration("20230219112044_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -114,13 +114,13 @@ namespace entitydotnetproject.Migrations
                     b.HasOne("entity_dotnet_project.Models.User", "Recipient")
                         .WithMany("MessagesReceived")
                         .HasForeignKey("RecipientId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("entity_dotnet_project.Models.User", "Sender")
                         .WithMany("MessagesSent")
                         .HasForeignKey("SenderId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Recipient");

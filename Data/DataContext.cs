@@ -62,16 +62,15 @@ namespace entity_dotnet_project.Data
             builder.Entity<Message>()
                 .HasOne(u => u.Recipient)
                 .WithMany(m => m.MessagesReceived)
-                // if a sender user deletes his profile, we want the recipient of the message 
-                // should still be able to see that message
-                .OnDelete(DeleteBehavior.Restrict);
+                // the user can not delete his profile, 
+                // if there are messages with that user being the sender or the recipient
+                //.OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<Message>()
                 .HasOne(u => u.Sender)
                 .WithMany(m => m.MessagesSent)
-                // if a sender user deletes his profile, we want the recipient of the message 
-                // should still be able to see that message
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -49,7 +49,7 @@ namespace entity_dotnet_project.Controllers
                 .FirstOrDefaultAsync(u => u.Id == id);
             Messages = _messageRepo.Messages;
 
-            if (u != null && !Messages.Any(x => x.SenderId == id) && !Messages.Any(x => x.RecipientId == id))
+            if (u != null)
             {
                 await _userRepo.Delete(u);
                 ViewData["Message"] = "The user is deleted";
@@ -59,7 +59,7 @@ namespace entity_dotnet_project.Controllers
             }
 
             ViewBag.Message = "Hello";
-            ViewData["Message"] = "You cannot delete the user";
+            ViewData["Message"] = "User not found";
             Users = _userRepo.Users;
             return View("Index", Users);
         }

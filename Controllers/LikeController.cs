@@ -49,8 +49,8 @@ namespace entity_dotnet_project.Controllers
 
                 foreach (var user in Users)
                 {
-                newViewModel.UsersList.Add(new SelectListItem {
-                        Text = user.Username, Value = user.Id + "-" + user.Username});
+                    newViewModel.UsersList.Add(new SelectListItem {
+                    Text = user.Username, Value = user.Id + "-" + user.Username});
                 }
                 return View("AddLike", newViewModel);
             }

@@ -46,3 +46,23 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+#likes {
+  position: relative;
+}
+
+#messages {
+  position: relative;
+}
+
+.number {
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+  right: -14px;
+  top: -5px;
+}

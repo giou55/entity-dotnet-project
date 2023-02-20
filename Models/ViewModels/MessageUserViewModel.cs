@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace entity_dotnet_project.Models
@@ -7,7 +9,11 @@ namespace entity_dotnet_project.Models
 
         public string SelectedSender {get; set;}
         public string SelectedRecipient {get; set;}
+
+        [ValidateNever]
         public List<SelectListItem> UsersList { get; set; }
-        public Message Message { get; set; }
+
+        [Required]
+        public string Content { get; set; }
     }
 }

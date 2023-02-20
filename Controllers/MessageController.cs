@@ -40,9 +40,24 @@ namespace entity_dotnet_project.Controllers
         [HttpPost]
         public async Task<ActionResult> MessageForm(MessageUserViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                //return Redirect("~/Message/AddMessage");
+                //return RedirectToAction("AddMessage");
+                MessageUserViewModel newViewModel = new MessageUserViewModel();
+                Users = _userRepo.Users.ToList();
+                newViewModel.UsersList = new List<SelectListItem>();
+
+                foreach (var user in Users)
+                {
+                newViewModel.UsersList.Add(new SelectListItem {
+                        Text = user.Username, Value = user.Id + "-" + user.Username});
+                }
+                return View("AddMessage", newViewModel);
+            }
+
             var SelectedSender = viewModel.SelectedSender; 
             var SelectedRecipient = viewModel.SelectedRecipient; 
-            Console.WriteLine("Content: " + viewModel.Message.Content);
             string[] sender = SelectedSender.Split('-');
             string[] recipient = SelectedRecipient.Split('-');
 
@@ -52,7 +67,7 @@ namespace entity_dotnet_project.Controllers
                 SenderUsername = sender[1],
                 RecipientId = Int32.Parse(recipient[0]),
                 RecipientUsername = recipient[1],
-                Content = viewModel.Message.Content
+                Content = viewModel.Content
             };
 
             await _messageRepo.AddAsync(message);

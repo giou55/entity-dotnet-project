@@ -41,16 +41,48 @@ namespace entity_dotnet_project.Controllers
         [HttpPost]
         public async Task<ActionResult> LikeForm(LikeUserViewModel viewModel)
         {
+             if (!ModelState.IsValid)
+            {
+                LikeUserViewModel newViewModel = new LikeUserViewModel();
+                Users = _userRepo.Users.ToList();
+                newViewModel.UsersList = new List<SelectListItem>();
+
+                foreach (var user in Users)
+                {
+                newViewModel.UsersList.Add(new SelectListItem {
+                        Text = user.Username, Value = user.Id + "-" + user.Username});
+                }
+                return View("AddLike", newViewModel);
+            }
+
+            Likes = _likeRepo.Likes;
  
             var SelectedSender = viewModel.SelectedSender; 
             var SelectedRecipient = viewModel.SelectedRecipient; 
             string[] sender = SelectedSender.Split('-');
             string[] recipient = SelectedRecipient.Split('-');
+            var sourceUserId = Int32.Parse(sender[0]);
+            var targetUserId = Int32.Parse(recipient[0]);
+
+            if (Likes.Any(x => x.SourceUserId == sourceUserId && x.TargetUserId == targetUserId)) 
+            {
+                LikeUserViewModel newViewModel = new LikeUserViewModel();
+                Users = _userRepo.Users.ToList();
+                newViewModel.UsersList = new List<SelectListItem>();
+
+                foreach (var user in Users)
+                {
+                    newViewModel.UsersList.Add(new SelectListItem {
+                    Text = user.Username, Value = user.Id + "-" + user.Username});
+                }
+                ViewData["Message"] = "You cannot add the same like twice";
+                return View("AddLike", newViewModel);
+            }
 
             var like = new Like 
             {
-                SourceUserId = Int32.Parse(sender[0]),
-                TargetUserId = Int32.Parse(recipient[0]),
+                SourceUserId = sourceUserId,
+                TargetUserId = targetUserId,
             };
 
             await _likeRepo.AddAsync(like);

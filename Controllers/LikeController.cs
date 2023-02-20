@@ -41,6 +41,7 @@ namespace entity_dotnet_project.Controllers
         [HttpPost]
         public async Task<ActionResult> LikeForm(LikeUserViewModel viewModel)
         {
+ 
             var SelectedSender = viewModel.SelectedSender; 
             var SelectedRecipient = viewModel.SelectedRecipient; 
             string[] sender = SelectedSender.Split('-');
@@ -67,8 +68,6 @@ namespace entity_dotnet_project.Controllers
                 return Redirect("~/Like");
             }
             return NotFound();
-            // Console.WriteLine("SourceUserId: " + l.SourceUserId);
-            // Console.WriteLine("TargetUserId: " + l.TargetUserId);
         }
     }
 }

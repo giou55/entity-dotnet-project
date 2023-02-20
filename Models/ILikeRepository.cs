@@ -8,5 +8,6 @@ namespace entity_dotnet_project.Models
         Task Delete(Like l);
         void Save(Like l);
         Task SaveAsync(Like l);
+        Task<int> LikesNumber();
     }
 }

@@ -52,13 +52,13 @@ namespace entity_dotnet_project.Controllers
             if (u != null)
             {
                 await _userRepo.Delete(u);
+                ViewBag.Greeting = "Hello";
                 ViewData["Message"] = "The user is deleted";
                 Users = _userRepo.Users;
                 return View("Index", Users);
                 //return Redirect("~/User");
             }
 
-            ViewBag.Message = "Hello";
             ViewData["Message"] = "User not found";
             Users = _userRepo.Users;
             return View("Index", Users);

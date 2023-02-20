@@ -8,5 +8,6 @@ namespace entity_dotnet_project.Models
         Task Delete(Message m);
         void Save(Message m);
         Task SaveAsync(Message m);
+        Task<int> MessagesNumber();
     }
 }

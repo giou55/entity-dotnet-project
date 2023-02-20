@@ -1,4 +1,5 @@
 using entity_dotnet_project.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace entity_dotnet_project.Models
 {
@@ -39,5 +40,9 @@ namespace entity_dotnet_project.Models
         {
             throw new NotImplementedException();
         }
+
+        public async Task<int> LikesNumber() {
+            return await _context.Likes.CountAsync();
+        } 
     }
 }
